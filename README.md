@@ -12,36 +12,47 @@ backend
 After cloning the Repository->
 Make sure you have Node and npm installed in the local system.
 
-//Backend Setup
+### Backend Setup
+
 In the CLI
 
 1. Move to the 'backend' directory
 
-2. Run Command -> 'npm install'
-   This will install all the required dependencies for the Backend
+2. Run Command ->
 
-3. Once all the dependencies are installed-
-   Run Command -> 'npm start'
+# 'npm install'
+
+This will install all the required dependencies for the Backend
+
+3. Once all the dependencies are installed run command
+
+# 'npm start'
 
 This will start running the server for Backend.
 The Server will start running default on PORT 8001
 
-//Frontend Setup
+### Frontend Setup
+
 In the CLI
 
 1. Move to the 'frontend' directory
 
-2. Run Command -> 'npm install'
-   This will install all the required dependencies for the Frontend
+2. Run Command ->
+
+# 'npm install'
+
+This will install all the required dependencies for the Frontend
 
 3. Once all the dependencies are installed-
-   Run Command -> 'npm start'
+   Run Command ->
 
-This will start running the server for Frontend
-The App will start running default on PORT: 3000
+# 'npm start'
+
+-- This will start running the server for Frontend
+The App will start running default on PORT: 3005
 --Local URL for FE =>
 
-http://localhost:3000
+http://localhost:3005
 
 Once both the servers are running-
 

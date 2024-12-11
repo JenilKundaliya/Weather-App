@@ -14,8 +14,8 @@
     "sass": "^1.82.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "dev": "react-scripts start"
+    "start": "set PORT=3005 && react-scripts start",
+    "dev": "set PORT=3005 react-scripts start"
   },
   "eslintConfig": {
     "extends": [
