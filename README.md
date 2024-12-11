@@ -49,6 +49,10 @@ Once both the servers are running-
 Enter any city name, and then Check For Weather for that city.
 
 -- On the Backend,
+--OpenWeatherMap Service is used to fetch weather data.
+API Used ->
+`https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${this.apiKey}&units=metric`;
+
 --Caching is done after getting response from the OpenWeatherMap service
 --So if a subsequent request comes for a cached city, then return Response from the Cached Data
 --so for a particular city , the cached value will be it's response.
