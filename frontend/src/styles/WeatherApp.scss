@@ -1,7 +1,7 @@
 .weather-app-main {
   background: linear-gradient(rgba(66, 66, 66, 0.55), rgba(83, 83, 82, 0.6)),
     url("../../public/assets/background.jpg");
-  height: calc(100vh - 60px);
+  min-height: calc(100vh - 60px);
   width: 100%;
 }
 .weather-parameters-list {
