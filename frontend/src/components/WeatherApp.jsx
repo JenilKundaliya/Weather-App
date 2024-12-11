@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Search, Sun, Cloud, CloudRain, Droplet, Wind } from "lucide-react";
+import { Sun, Cloud, CloudRain } from "lucide-react";
 import axios from "axios";
 const WEATHER_APP_API_BASE_URL =
   process.env.WEATHER_APP_API_BASE_URL ||
@@ -38,15 +38,16 @@ const WeatherApp = () => {
       const response = await axios.get(
         `${WEATHER_APP_API_BASE_URL}/weather/check-weather?city=${city}`
       );
-      if (response?.data?.code !== 200) {
-        setError(response?.data?.error);
+      if (!response?.data || response?.data?.code !== 200) {
+        setError(response?.data?.error ?? "Something Went Wrong");
       }
+
       setWeatherData(response?.data?.data);
       setCity("");
       setError("");
     } catch (err) {
       console.log("errerr", err);
-      setError(err?.response?.data?.error);
+      setError(err?.response?.data?.error ?? "Something Went Wrong");
       setWeatherData(null);
     }
   };
