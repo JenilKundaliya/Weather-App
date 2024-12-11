@@ -1,9 +1,11 @@
 import OpenWeatherMap from "../services/OpenWeatherMap.services";
 import ApiClient from "../utils/axiosInstance";
 import { NextFunction, Request, Response } from "express";
-interface getWeather {
-  city_name?: String;
+interface getWeatherQuery {
+  city?: string;
 }
+import CacheService from "../config/nodeCache";
+const weatherCache = CacheService.getInstance();
 class Weather extends ApiClient {
   private static instance: Weather;
 
@@ -14,21 +16,52 @@ class Weather extends ApiClient {
     _next: NextFunction
   ) => {
     try {
-      let { city_name }: getWeather = req.query;
-      if (!city_name) {
-        res.status(400).json({ code: 400, message: "City Name is Required" });
+      let { city }: getWeatherQuery = req.query;
+      if (!city) {
+        return res
+          .status(400)
+          .json({ code: 400, message: "City Name is Required" });
       }
-      const OpenWeatherMapService = new OpenWeatherMap();
-      let weatherData: any = OpenWeatherMapService.getWeather(city_name);
+
+      //checking if exists in the cache
+      if (weatherCache.get(city)) {
+        let cachedData = weatherCache.get(city);
+        return res.status(200).json({
+          code: 200,
+          message: "Weather Data Fetched Succesfully",
+          data: cachedData,
+        });
+      }
+
+      //Open Weather Map Service
+      const OpenWeatherMapService = await new OpenWeatherMap();
+      let weatherData: any = await OpenWeatherMapService.getWeather(
+        city?.toString()
+      );
+
+      //error
       if (!weatherData.success) {
-        res.status(400).json({ code: 400, error: weatherData?.error });
+        return res.status(400).json({
+          code: 400,
+          error:
+            "Something Went Wrong! There's some problem fetching data for this City or Enter a Valid City Name.",
+        });
       }
-      res.status(200).json({
+
+      //success response
+      return res.status(200).json({
         code: 200,
         message: "Weather Data Fetched Succesfully",
         data: weatherData?.data,
       });
-    } catch (err: any) {}
+    } catch (err: any) {
+      console.error(err);
+      return res.status(400).json({
+        code: 400,
+        error:
+          "Something Went Wrong! There's some problem fetching data for this City or Please Enter a Valid City Name.",
+      });
+    }
   };
   static getInstance(): Weather {
     if (!Weather.instance) {

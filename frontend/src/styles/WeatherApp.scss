@@ -1,0 +1,43 @@
+.weather-app-main {
+  background: linear-gradient(rgba(66, 66, 66, 0.55), rgba(83, 83, 82, 0.6)),
+    url("../../public/assets/background.jpg");
+  height: calc(100vh - 60px);
+  width: 100%;
+}
+.weather-parameters-list {
+  list-style-type: none !important;
+}
+.form-control {
+  &:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+  &:active {
+    outline: none !important;
+  }
+}
+.city-search-input {
+  background: transparent;
+  color: white !important;
+  &:focus {
+    background: transparent;
+  }
+  &:active {
+    background: transparent;
+  }
+  &::placeholder {
+    color: whitesmoke !important;
+  }
+}
+.weather-parameter-child {
+  padding: 30px 0;
+  background-color: black;
+  opacity: 0.6;
+  .wp-title {
+    margin-bottom: 0 !important;
+    color: grey;
+  }
+  .wp-desc {
+    color: white;
+  }
+}
