@@ -39,3 +39,8 @@ Enter any city name, and then Check For Weather for that city.
 --So if a subsequent request comes for a cached city, then return Response from the Cached Data
 --so for a particular city , the cached value will be it's response.
 --The Caching Expiry is 10 mins for now.
+
+Tech Stack:
+FE: ReactJS
+
+BE: NodeJS, ExpressJS
