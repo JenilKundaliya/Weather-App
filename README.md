@@ -1,5 +1,7 @@
 # Weather-App
 
+Clone the 'main' Branch of the Repository
+
 Weather App (Root Folder)
 
 -- Sub Folders
@@ -18,20 +20,21 @@ Make sure you have Node and npm installed in the local system.
 
 This will start running the server for Frontend and Backend Both
 
-For Frontend
+-- For Frontend
 The App will start running default on PORT 3000
-Hit this URL in the browser
+Local URL for FE =>
+
 http://localhost:3000
 
-For Backend
+-- For Backend
 The Server will start running default on PORT 8001
 
 Once both the servers are running-
 
-On the Frontend,
+-- On the Frontend,
 Enter any city name, and then Check For Weather for that city.
 
-On the Backend,
+-- On the Backend,
 Caching is done after getting response from the OpenWeatherMap service,
 So if a subsequent request comes for a cached city, then return Response from the Cached Data
 so for a particular city , the cached value will be it's response.
