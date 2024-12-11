@@ -9,7 +9,6 @@ const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState({});
   const [error, setError] = useState("");
   const [isCheckValid, setIsCheckValid] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const getWeatherIcon = (iconCode) => {
     const iconMap = {
       "01d": <Sun size={64} className="bg-white text-yellow-500" />,
@@ -29,7 +28,6 @@ const WeatherApp = () => {
   };
 
   const fetchWeatherData = async () => {
-    setIsLoading(true);
     setIsCheckValid(true);
     if (!city) {
       setError("Please enter a city name");
@@ -43,12 +41,10 @@ const WeatherApp = () => {
       if (!response?.data || response?.data?.code !== 200) {
         setError(response?.data?.error ?? "Something Went Wrong");
       }
-      setIsLoading(false);
       setWeatherData(response?.data?.data);
       setCity("");
       setError("");
     } catch (err) {
-      setIsLoading(false);
       console.log("errerr", err);
       setError(err?.response?.data?.error ?? "Something Went Wrong");
       setWeatherData(null);
