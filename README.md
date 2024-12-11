@@ -21,7 +21,7 @@ In the CLI
    This will install all the required dependencies for the Backend
 
 3. Once all the dependencies are installed-
-   Run Command -> 'npm run dev'
+   Run Command -> 'npm start'
 
 This will start running the server for Backend.
 The Server will start running default on PORT 8001
@@ -35,7 +35,7 @@ In the CLI
    This will install all the required dependencies for the Frontend
 
 3. Once all the dependencies are installed-
-   Run Command -> 'npm run dev'
+   Run Command -> 'npm start'
 
 This will start running the server for Frontend
 The App will start running default on PORT: 3000
