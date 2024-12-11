@@ -21,8 +21,8 @@ Make sure you have Node and npm installed in the local system.
 This will start running the server for Frontend and Backend Both
 
 -- For Frontend
-The App will start running default on PORT 3000
-Local URL for FE =>
+The App will start running default on PORT: 3000
+--Local URL for FE =>
 
 http://localhost:3000
 
@@ -35,7 +35,7 @@ Once both the servers are running-
 Enter any city name, and then Check For Weather for that city.
 
 -- On the Backend,
-Caching is done after getting response from the OpenWeatherMap service,
-So if a subsequent request comes for a cached city, then return Response from the Cached Data
-so for a particular city , the cached value will be it's response.
-The Caching Expiry will be 10 mins for now.
+--Caching is done after getting response from the OpenWeatherMap service
+--So if a subsequent request comes for a cached city, then return Response from the Cached Data
+--so for a particular city , the cached value will be it's response.
+--The Caching Expiry is 10 mins for now.
